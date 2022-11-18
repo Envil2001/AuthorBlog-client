@@ -97,7 +97,7 @@ export const FullPost = () => {
             <>
               <Avatar
                 classes={{ root: styles.avatar }}
-                src={userData.avatarUrl ? `https://envil-blog-mern.herokuapp.com/uploads/'${userData.avatarUrl}` : '/noavatar.png'}
+                src={userData.avatarUrl ? `https://envil-blog-mern.herokuapp.com/uploads/${userData.avatarUrl}` : '/noavatar.png'}
               />
               <div className={styles.form}>
                 <TextField
