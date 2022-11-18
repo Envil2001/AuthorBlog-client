@@ -6,7 +6,7 @@ export const UserInfo = ({ avatarUrl, fullName, additionalText, _id }) => {
   
   return (
     <div className={styles.root}>
-      <img className={styles.avatar} src={avatarUrl || '/noavatar.png'} alt={fullName} />
+      <img className={styles.avatar} src={'https://envil-blog-mern.herokuapp.com/uploads' + avatarUrl || '/noavatar.png'} alt={fullName} />
       <div className={styles.userDetails}>
         <Link to={`/user/${_id}`} className={styles.userName}>{fullName}</Link>
         <span className={styles.additional}>{additionalText}</span>
