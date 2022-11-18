@@ -8,7 +8,9 @@ import { TagsBlock } from '../components/TagsBlock';
 // import { CommentsBlock } from '../components/CommentsBlock';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPopular, fetchPosts, fetchTags } from '../redux/slices/posts';
-import {  useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from "../axios"
+import { UsersBlock } from '../components/UsersBlock';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -17,11 +19,12 @@ export const Home = () => {
   const { posts, tags } = useSelector(state => state.posts);
   const location = useLocation();
   const [tab, setTabs] = useState(0);
+  const [users, setUsers] = useState([]);
   const isPostsLoading = posts.status === 'loading';
   const isTagsLoading = posts.status === 'loading';
 
-  useEffect(() => {
 
+  useEffect(() => {
     function fetchBusinesses() {
       if (location.pathname.indexOf('popular') === 1) {
         setTabs(1)
@@ -36,30 +39,42 @@ export const Home = () => {
     fetchBusinesses()
   }, [dispatch, location.pathname]);
 
+  useEffect(() => {
+    axios
+      .get('/auth/users')
+      .then((res) => {
+        setUsers(res.data)
+
+      })
+      .catch(err => {
+        console.warn(err);
+        alert('Ошибка при получении статьи');
+      })
+  }, []);
 
 
   return (
     <>
-      
-        <Tabs style={{ marginBottom: 15 }} value={tab} aria-label="basic tabs example">
-          
-            <Tab label="Новые" type='submit' onClick={() => {
-              setTabs(0)
-              dispatch(fetchPosts());
-              dispatch(fetchTags());
-              navigate('/');
-            }} />
-          
-          
-            <Tab label="Популярные" type='submit' onClick={() => {
-              setTabs(1)
-              dispatch(fetchPopular());
-              dispatch(fetchTags());
-              navigate('/popular');
-            }} />
-          
-        </Tabs>
-      
+
+      <Tabs style={{ marginBottom: 15 }} value={tab} aria-label="basic tabs example">
+
+        <Tab label="Новые" type='submit' onClick={() => {
+          setTabs(0)
+          dispatch(fetchPosts());
+          dispatch(fetchTags());
+          navigate('/');
+        }} />
+
+
+        <Tab label="Популярные" type='submit' onClick={() => {
+          setTabs(1)
+          dispatch(fetchPopular());
+          dispatch(fetchTags());
+          navigate('/popular');
+        }} />
+
+      </Tabs>
+
       <Grid container spacing={4}>
         <Grid xs={8} item>
           {
@@ -96,6 +111,7 @@ export const Home = () => {
         </Grid>
         <Grid xs={4} item>
           <TagsBlock items={tags.items} isLoading={isTagsLoading} />
+          <UsersBlock users={users} />
         </Grid>
       </Grid>
     </>

@@ -10,8 +10,8 @@ import List from "@mui/material/List";
 import Skeleton from "@mui/material/Skeleton";
 import { Link } from "react-router-dom";
 
-export const CommentsBlock = ({ items, children, isLoading  }) => {
-  console.log(items);
+export const CommentsBlock = ({ items, children, isLoading }) => {
+
   return (
     <SideBlock title="Комментарии">
       <List>

@@ -60,7 +60,7 @@ export const Post = ({
         </div>
       )}
       {imageUrl && (
-        <div className={clsx(styles.image, { [styles.imageFull]: isFullPost })} style={{ backgroundImage: `url(https://envil-blog-mern.herokuapp.com/uploads/${imageUrl})` }}></div>
+        <Link to={`/posts/${id}`}><div className={clsx(styles.image, { [styles.imageFull]: isFullPost })} style={{ backgroundImage: `url(https://envil-blog-mern.herokuapp.com/uploads/${imageUrl})` }}></div></Link>
       )}
       <div className={styles.wrapper}>
 
