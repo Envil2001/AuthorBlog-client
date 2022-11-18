@@ -62,7 +62,7 @@ export const Header = () => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                       >
-                        <Avatar src={userData.avatarUrl !== undefined ? 'https://envil-blog-mern.herokuapp.com/uploads/' + userData.avatarUrl : '/noavatar.png'} sx={{ width: 36, height: 36, borderRadius: "12px" }}></Avatar>
+                        <Avatar src={userData.avatarUrl ? `https://envil-blog-mern.herokuapp.com/uploads/' ${userData.avatarUrl}` : '/noavatar.png'} sx={{ width: 36, height: 36, borderRadius: "12px" }}></Avatar>
                       </IconButton>
                     </Tooltip>
                   </Box>

@@ -62,7 +62,7 @@ export const UserProfile = () => {
         <section className={styles.block_user}>
             <div className={styles.avatar}>
 
-                <img src={avatarUrl ? 'https://envil-blog-mern.herokuapp.com/uploads/' + avatarUrl : '/noavatar.png'} alt={fullName} style={{objectFit: "cover"}}/>
+                <img src={avatarUrl ? `https://envil-blog-mern.herokuapp.com/uploads/' ${avatarUrl}` : '/noavatar.png'} alt={fullName} style={{objectFit: "cover"}}/>
                 {
                     isEditable &&
                     <>
