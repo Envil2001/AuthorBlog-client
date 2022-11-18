@@ -62,7 +62,7 @@ export const UserProfile = () => {
         <section className={styles.block_user}>
             <div className={styles.avatar}>
 
-                <img src={`${process.env.REACT_APP_API_URL}${avatarUrl}`} alt={fullName} style={{objectFit: "cover"}}/>
+                <img src={`https://envil-blog-mern.herokuapp.com/uploads/${avatarUrl}`} alt={fullName} style={{objectFit: "cover"}}/>
                 {
                     isEditable &&
                     <>

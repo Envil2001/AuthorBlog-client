@@ -22,7 +22,7 @@ export const CommentsBlock = ({ items, children, isLoading  }) => {
                 {isLoading ? (
                   <Skeleton variant="circular" width={40} height={40} />
                 ) : (
-                  <Avatar alt={obj.user.fullName} src={`${process.env.REACT_APP_API_URL}${obj.user.avatarUrl}`} />
+                  <Avatar alt={obj.user.fullName} src={`https://envil-blog-mern.herokuapp.com/uploads/${obj.user.avatarUrl}`} />
                 )}
               </ListItemAvatar>
               {isLoading ? (
