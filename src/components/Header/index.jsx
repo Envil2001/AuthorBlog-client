@@ -62,7 +62,7 @@ export const Header = () => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                       >
-                        <Avatar src={userData.avatarUrl} sx={{ width: 36, height: 36, borderRadius: "12px" }}></Avatar>
+                        <Avatar src={`${process.env.REACT_APP_API_URL}${userData.avatarUrl}`} sx={{ width: 36, height: 36, borderRadius: "12px" }}></Avatar>
                       </IconButton>
                     </Tooltip>
                   </Box>

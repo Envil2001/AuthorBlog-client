@@ -62,7 +62,7 @@ export const UserProfile = () => {
         <section className={styles.block_user}>
             <div className={styles.avatar}>
 
-                <img src={avatarUrl} alt={fullName} style={{objectFit: "cover"}}/>
+                <img src={`${process.env.REACT_APP_API_URL}${avatarUrl}`} alt={fullName} style={{objectFit: "cover"}}/>
                 {
                     isEditable &&
                     <>
